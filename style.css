@@ -1,8 +1,8 @@
 :root {
-  color: #11110f;
-  background: #f2f1ec;
+  color: #050505;
+  background: #fdfdfd;
   font-family: "Raleway", Helvetica, Arial, system-ui, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-synthesis: none;
 }
 
@@ -19,29 +19,50 @@ body {
 body {
   min-height: 100vh;
   background: inherit;
+  border-left: 2px solid #050505;
 }
 
 .site {
-  display: flex;
+  display: grid;
   min-height: 100vh;
   min-height: 100svh;
-  flex-direction: column;
+  grid-template-rows: 91px 29px 1fr auto;
+}
+
+.masthead {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 32px 36px 30px;
+  padding: 0 109px 0 107px;
 }
 
-h1,
-p {
+.masthead h1,
+.masthead span {
   margin: 0;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.4;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
-.identity {
-  display: grid;
-  grid-template-columns: 150px auto;
-  align-items: end;
+.rule {
+  background: #050505;
+}
+
+.statement {
+  align-self: center;
+  justify-self: center;
+  margin: 0 0 3.5vh;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+footer {
+  padding: 0 0 12.3vh 13vw;
 }
 
 .contact {
@@ -52,10 +73,13 @@ p {
 
 a {
   color: inherit;
+  font-size: 21px;
+  font-weight: 400;
   line-height: 1.4;
   text-decoration: none;
   text-underline-offset: 0.18em;
   text-decoration-thickness: 1px;
+  text-transform: uppercase;
 }
 
 a:hover,
@@ -68,12 +92,31 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .site {
-    padding: 20px 20px 18px;
+    grid-template-rows: 72px 18px 1fr auto;
   }
 
-  .identity {
-    grid-template-columns: minmax(96px, 32vw) auto;
+  .masthead {
+    padding: 0 20px;
+  }
+
+  .masthead h1,
+  .masthead span,
+  a {
+    font-size: 14px;
+  }
+
+  .statement {
+    max-width: calc(100vw - 40px);
+    margin-bottom: 2vh;
+    font-size: clamp(18px, 5vw, 28px);
+    line-height: 1.55;
+    text-align: center;
+    white-space: normal;
+  }
+
+  footer {
+    padding: 0 0 9vh 20px;
   }
 }

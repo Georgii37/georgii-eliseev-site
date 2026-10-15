@@ -1,0 +1,574 @@
+
+/* ========================================
+   1. FONT IMPORTS
+======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=IBM+Plex+Sans:wght@400&display=swap');
+
+
+/* ========================================
+   2. GLOBAL STYLES
+======================================== */
+
+:root {
+  font-family: "Raleway", sans-serif;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.site {
+  min-height: 100vh;
+  min-height: 100svh;
+  background-color: #ffffff;
+}
+
+
+/* ========================================
+   3. HEADER
+   Figma: 1440 × 1024
+======================================== */
+
+.site-header {
+  height: 66px;
+  padding: 0 75px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header h1,
+.site-header span {
+  margin: 0;
+
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   4. HEADER DIVIDER
+======================================== */
+
+.header-divider {
+  width: 100%;
+  height: 20px;
+  background-color: #000000;
+}
+
+
+/* ========================================
+   5. ARTWORK TYPOGRAPHY
+======================================== */
+
+.artwork-title {
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 6.48px;
+  text-transform: uppercase;
+
+  color: #000000;
+  text-decoration: none;
+}
+
+
+/* ========================================
+   6. FOOTER TYPOGRAPHY
+======================================== */
+
+.site-footer {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.site-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* ========================================
+   7. RESPONSIVE STYLES
+======================================== */
+
+@media (max-width: 600px) {
+
+  .site-header {
+    padding: 0 24px;
+  }
+
+  .site-header h1,
+  .site-header span {
+    font-size: 14px;
+  }
+
+  .artwork-title {
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+
+  .site-footer {
+    font-size: 14px;
+  }
+
+}
+
+
+/* ========================================
+   8. WORK INDEX — FIGMA COMPOSITION
+======================================== */
+
+.work-index {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+}
+
+.work-grid {
+  position: relative;
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 129px 128px;
+
+  width: 900px;
+  max-width: calc(100% - 48px);
+  margin: 169px auto 0;
+}
+
+/* Artwork titles */
+
+.work-grid .artwork-title {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  white-space: nowrap;
+}
+
+.work-deflections {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.work-permitted {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+
+.work-a {
+  grid-column: 2;
+  grid-row: 2;
+
+  align-self: start;
+  justify-self: stretch;
+
+  padding-top: 73px;
+
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+  text-align: center;
+}
+
+
+/* Intersecting lines */
+
+.work-horizontal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 129px;
+
+  height: 2px;
+  background: #000;
+}
+
+.work-vertical {
+  position: absolute;
+  left: 50%;
+  top: 0;
+
+  width: 2px;
+  height: 257px;
+  background: #000;
+
+  transform: translateX(-50%);
+}
+
+/* Hover and keyboard focus */
+
+.work-grid .artwork-title:hover {
+  opacity: 0.55;
+}
+
+.work-grid .artwork-title:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 5px;
+}
+
+
+
+
+/* MOBILE — Refined cross composition */
+
+@media (max-width: 700px) {
+
+  .work-index {
+    min-height: 520px;
+  }
+
+  .work-grid {
+    width: calc(100% - 16px);
+    max-width: 440px;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
+    grid-template-rows: 125px 145px;
+
+    margin: 130px auto 0;
+  }
+
+  /* Typography */
+
+  .work-grid .artwork-title {
+    font-family: "Raleway", sans-serif;
+    font-size: clamp(12px, 3.6vw, 16px);
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+
+    white-space: nowrap;
+    text-align: center;
+    min-width: 0;
+    padding: 0 4px;
+  }
+
+  .work-deflections {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .work-permitted {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  /* Ā — Lower-right quadrant */
+
+  .work-grid .work-a {
+    grid-column: 2;
+    grid-row: 2;
+
+    align-self: start;
+    padding-top: 55px;
+
+    font-size: 22px;
+    letter-spacing: 0;
+  }
+
+  /* Cross */
+
+  .work-horizontal {
+    display: block;
+    top: 125px;
+    left: 0;
+    right: 0;
+    height: 1px;
+  }
+
+  .work-vertical {
+    display: block;
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 270px;
+
+    transform: translateX(-50%);
+  }
+}
+
+/* ========================================
+   ABOUT INTERACTION
+======================================== */
+
+/* Header button */
+
+.about-button {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #000;
+  cursor: pointer;
+}
+
+/* About expandable area */
+
+.about-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    grid-template-rows 450ms ease-in-out,
+    opacity 350ms ease-in-out,
+    visibility 450ms;
+}
+
+.about-panel.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    grid-template-rows 450ms ease-in-out,
+    opacity 350ms ease-in-out,
+    visibility 0s;
+}
+
+.about-content {
+  min-height: 0;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: minmax(0, 599px) auto;
+  gap: 96px;
+
+  width: min(950px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* Biography */
+
+.about-biography {
+  margin: 0;
+  padding-top: 90px;
+  padding-bottom: 50px;
+
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.3px;
+  white-space: pre-line;
+}
+
+/* Hide control */
+
+.about-hide {
+  align-self: start;
+  justify-self: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 105px;
+  padding: 10px;
+
+  border: 0;
+  background: transparent;
+
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.hide-circle {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #000;
+}
+
+/* Cross movement */
+
+.work-grid {
+  transition: margin-top 450ms ease-in-out;
+}
+
+.site.about-open .work-grid {
+  margin-top: 70px;
+}
+
+/* Focus states */
+
+.about-button:focus-visible,
+.about-hide:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 5px;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .about-button {
+    font-size: 14px;
+  }
+
+  .about-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .about-biography {
+    padding-top: 60px;
+    padding-bottom: 16px;
+    font-size: 17px;
+    line-height: 1.45;
+  }
+
+  .about-hide {
+    justify-self: end;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  .site.about-open .work-grid {
+    margin-top: 60px;
+  }
+
+
+.about-biography p {
+  margin: 0 0 20px;
+}
+
+.about-biography p:last-child {
+  margin-bottom: 0;
+}
+
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-panel,
+  .work-grid {
+    transition: none;
+  }
+}
+
+
+/* ========================================
+   FOOTER — REFINED
+======================================== */
+
+.site-footer {
+  width: 100%;
+  padding: 0 max(75px, calc((100% - 960px) / 2)) 48px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  gap: 4px;
+  text-align: right;
+}
+
+.footer-links a {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+
+  color: #000;
+  text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .site-footer {
+    margin-top: -50px;
+    padding: 0 24px 40px;
+  }
+
+  .footer-links a {
+    font-size: 16px;
+  }
+}
+
+
+
+/* ========================================
+   PAGE LOAD — SMOOTH ATMOSPHERIC REVEAL
+======================================== */
+
+@keyframes page-reveal {
+  0% {
+    opacity: 0;
+    filter: blur(9px);
+    transform: translateY(-12px);
+  }
+
+  
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.site {
+  animation: page-reveal 1.6s
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .site {
+    animation: none;
+  }
+}

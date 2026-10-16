@@ -40,7 +40,7 @@ body {
 
 /* ========================================
    3. HEADER
-   Figma: 1440 × 1024
+   Figma: 1440 Ã— 1024
 ======================================== */
 
 .site-header {
@@ -142,14 +142,19 @@ body {
 
 
 /* ========================================
-   8. WORK INDEX — FIGMA COMPOSITION
+   8. WORK INDEX â€” FIGMA COMPOSITION
 ======================================== */
+
+
 
 .work-index {
   position: relative;
   width: 100%;
-  min-height: 520px;
+  min-height: 0;
+  display: flow-root;
 }
+
+
 
 .work-grid {
   position: relative;
@@ -243,13 +248,9 @@ body {
 
 
 
-/* MOBILE — Refined cross composition */
+/* MOBILE â€” Refined cross composition */
 
 @media (max-width: 700px) {
-
-  .work-index {
-    min-height: 520px;
-  }
 
   .work-grid {
     width: calc(100% - 16px);
@@ -289,7 +290,7 @@ body {
     grid-row: 1;
   }
 
-  /* Ā — Lower-right quadrant */
+  /* Ä€ â€” Lower-right quadrant */
 
   .work-grid .work-a {
     grid-column: 2;
@@ -496,13 +497,16 @@ body {
 
 
 /* ========================================
-   FOOTER — REFINED
+   FOOTER â€” REFINED
 ======================================== */
+
 
 .site-footer {
   width: 100%;
+  margin-top: 70px;
   padding: 0 max(75px, calc((100% - 960px) / 2)) 48px;
 }
+
 
 .footer-links {
   display: flex;
@@ -531,11 +535,6 @@ body {
 /* Mobile */
 
 @media (max-width: 700px) {
-  .site-footer {
-    margin-top: -50px;
-    padding: 0 24px 40px;
-  }
-
   .footer-links a {
     font-size: 16px;
   }
@@ -544,7 +543,7 @@ body {
 
 
 /* ========================================
-   PAGE LOAD — SMOOTH ATMOSPHERIC REVEAL
+   PAGE LOAD â€” SMOOTH ATMOSPHERIC REVEAL
 ======================================== */
 
 @keyframes page-reveal {
@@ -568,30 +567,15 @@ body {
     cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Accessibility */
 
-@media (prefers-reduced-motion: reduce) {
-  .site {
-    animation: none;
-  }
-}
-
-/* MOBILE — Footer positioning */
+/* ========================================
+   MOBILE â€” LAYOUT & ACCESSIBILITY
+======================================== */
 
 @media (max-width: 700px) {
-  .work-index {
-    min-height: 420px;
-  }
 
-  .site-footer {
-    margin-top: 0;
-    padding: 0 24px 32px;
-  }
-}
+  /* Header navigation */
 
-/* MOBILE — Header navigation */
-
-@media (max-width: 700px) {
   .site-header {
     height: 66px;
     padding: 0 20px;
@@ -607,13 +591,79 @@ body {
     font-size: 14px;
     min-width: 48px;
     min-height: 44px;
+
     display: inline-flex;
     align-items: center;
     justify-content: flex-end;
     flex-shrink: 0;
   }
+
+  /* Artwork-to-footer spacing */
+
+  .site-footer {
+    margin-top: 45px;
+    padding: 0 24px 32px;
+  }
+
+  /* Social links */
+
+  .footer-links {
+    gap: 4px;
+    align-items: flex-end;
+  }
+
+  .footer-links a {
+    font-size: 16px;
+    min-height: 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+}
+
+/* ========================================
+   ACCESSIBILITY â€” KEYBOARD NAVIGATION
+======================================== */
+
+.about-button:focus-visible,
+.about-hide:focus-visible,
+.artwork-title:focus-visible,
+.footer-links a:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 5px;
+}
+
+/* ========================================
+   ACCESSIBILITY â€” REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .site {
+    animation: none;
+  }
+
+  .about-panel,
+  .work-grid {
+    transition: none;
+  }
 }
 
 
+/* FINAL FOOTER OVERRIDE */
 
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0;
+}
 
+.footer-links a {
+  display: block;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  line-height: 1.1;
+}

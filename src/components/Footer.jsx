@@ -1,5 +1,5 @@
 
-function Footer() {
+{/*function Footer() {
   return (
     <footer className="site-footer">
       <nav className="footer-links" aria-label="Contact">
@@ -19,4 +19,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default Footer;*/}

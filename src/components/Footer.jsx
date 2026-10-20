@@ -1,5 +1,7 @@
-
 function Footer() {
+  return null;
+
+  /*
   return (
     <footer className="site-footer">
       <nav className="footer-links" aria-label="Contact">
@@ -11,12 +13,17 @@ function Footer() {
           INSTAGRAM
         </a>
 
-        <a href="mailto:eliseevgeorge898@gmail.com" target="_blank" rel="noopener noreferrer">
+        <a
+          href="mailto:eliseevgeorge898@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           EMAIL
         </a>
       </nav>
     </footer>
   );
+  */
 }
 
 export default Footer;
